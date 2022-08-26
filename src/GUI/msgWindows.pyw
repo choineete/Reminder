@@ -11,8 +11,8 @@ screenWidth = root.winfo_screenwidth()
 screenHeight = root.winfo_screenheight()
 
 # 设置窗口大小
-width = screenWidth / 5
-height = screenHeight / 5
+width = screenWidth / 5.7
+height = screenHeight / 2.6
 
 # 构造窗体大小及位置
 winSize = '%dx%d+%d+%d' % (width, height, (screenWidth - width) - 18, 10)

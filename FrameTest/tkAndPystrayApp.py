@@ -1,6 +1,7 @@
-import threading
+
 from tkinter import Tk
 
+import threading
 import pystray
 from PIL import Image
 from pystray import MenuItem, Menu
