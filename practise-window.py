@@ -18,7 +18,7 @@ root_windows.title('测试')
 # 设置窗口宽高
 root_windows.geometry('450x300')
 # 更改左上角窗口图标
-root_windows.iconbitmap('remind.ico')
+root_windows.iconbitmap('icon000.ico')
 # 设置主窗口背景颜色，英文单词 or 16进制 or 颜色常量
 root_windows["background"] = "#FFFFFC"
 # 添加文本内，设置字体的前景色和背景色，和字体类型、字体
@@ -37,7 +37,7 @@ root_windows.mainloop()
 from ttkbootstrap.constants import *
 root = ttk.Window()
 
-root.iconbitmap('remind.ico')
+root.iconbitmap('icon000.ico')
 
 b1 = ttk.Button(root, text="Solid Button", bootstyle=SUCCESS)
 b1.pack(side=LEFT, padx=5, pady=10)

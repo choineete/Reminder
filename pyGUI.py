@@ -11,6 +11,6 @@ for item in li:  # 第一个小部件插入数据
 for item in movie:  # 第二个小部件插入数据
     listb2.insert(0, item)
 
-listb.pack()  # 将小部件放置到主窗口中
-listb2.pack()
+listb.grid(row = 0 ,column =0)  # 将小部件放置到主窗口中
+listb2.grid(row = 0 ,column =1)
 root.mainloop()  # 进入消息循环
