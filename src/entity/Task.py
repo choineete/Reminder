@@ -4,14 +4,20 @@ from datetime import datetime
 class Task:
     title = ''
     content = ''
-    expireTime = datetime.now()
+    expire_time = datetime.now()
+    remaining_days = -1
 
-    def print(self):
-        print(
-            '标题: ' + self.title + '\n' + '内容: ' + self.content + '\n' + '过期时间: ' + self.expireTime.strftime('%Y/%m/%d'))
+    def __init__(self,
+                 title='',
+                 content='',
+                 expire_time=datetime.now(),
+                 remaining_days=-1,
+                 ):
+        self.title = title
+        self.content = content
+        self.expire_time = expire_time
+        self.remaining_days = remaining_days
 
-
-if __name__ == '__main__':
-    task = Task()
-    task.expireTime = datetime.now()
-    task.print()
+        if self.remaining_days == -1:
+            self.remaining_days = (expire_time - datetime.now()).days
+        print('创建任务' + title)

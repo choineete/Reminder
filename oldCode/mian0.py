@@ -105,7 +105,7 @@ if __name__ == '__main__':
     UI_MakeMsgItem(root, msg)
 
     menu = (MenuItem('任务详情', show_window, default=True), Menu.SEPARATOR, MenuItem('退出', quit_window))
-    image = Image.open("remind.ico")
+    image = Image.open("../src/gui/remind.ico")
     icon = pystray.Icon("icon", image, "周计划提醒", menu)
 
     # 重新定义点击关闭按钮的处理
