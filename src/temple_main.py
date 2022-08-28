@@ -1,10 +1,14 @@
 import datetime
+import os
+import sys
 import threading
 
 from src.entity.Message import Message
 from src.entity.Task import Task
 from src.entity.User import User
 from src.gui.CreateUI import create_root_window, create_root_frame, create_sys_tray, create_message_item
+
+
 
 if __name__ == '__main__':
     root = create_root_window()
@@ -21,6 +25,7 @@ if __name__ == '__main__':
 
     msg_item1 = create_message_item(root_frame, msg1)
     msg_item2 = create_message_item(root_frame, msg2)
+
 
     threading.Thread(target=tray.run, daemon=True).start()
     root.mainloop()

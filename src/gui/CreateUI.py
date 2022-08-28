@@ -12,6 +12,26 @@ from pystray import MenuItem, Menu
 from ttkbootstrap.dialogs import MessageDialog
 
 
+def resource_path(relative_path):
+    if getattr(sys, 'frozen', False):  # 是否Bundle Resource
+        base_path = sys._MEIPASS
+    else:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
+
+# 返回打包到exe文件中静态资源运行时的文件路径
+def exe_get_picture(folder, filename):
+    filename = resource_path(os.path.join(folder, filename))
+    return filename
+
+
+# 打包时图片路径
+# icon_filename = exe_get_picture('img', 'remind.ico')
+# 开发时路径
+icon_filename = './img/remind.ico'
+
+
 def show_task_detail(title, content, expire_time, root_frame):
     screenwidth = root_frame.master.winfo_screenwidth() / 2.3
     screenheight = root_frame.master.winfo_screenheight() / 2.3
@@ -34,15 +54,15 @@ def create_root_window():
     screenheight = root.winfo_screenheight()
 
     # 设置窗口大小
-    width = 300
-    height = 400
+    width = 320
+    height = 420
 
     # 构造窗体大小及位置
     root_size = '%dx%d+%d+%d' % (width, height, (screenwidth - width) - 18, 10)
 
     root.title('')
     root.config(background='#FFFFFF')
-    root.iconbitmap('./img/remind.ico')
+    root.iconbitmap(icon_filename)
     root.geometry(root_size)
     root.resizable(0, 0)
     root.attributes("-topmost", -1)
@@ -131,7 +151,7 @@ def create_sys_tray(root):
 
                      lambda: root.destroy()))
     # 托盘图标
-    image = Image.open("./img/remind.ico")
+    image = Image.open(icon_filename)
     # 创建
     icon = pystray.Icon("周计划提醒",
                         image,
