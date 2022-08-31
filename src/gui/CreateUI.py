@@ -81,7 +81,7 @@ def create_message_item(root_frame, msg):
     task = msg.task
     title = task.title
     content = task.content
-    # 剩余时间
+    # 到期时间
     expire_time = '2022/08/27'
     days = msg.task.remaining_days
 
