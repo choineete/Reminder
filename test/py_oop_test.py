@@ -1,4 +1,5 @@
 import string
+import sys
 from datetime import *
 
 
@@ -67,4 +68,4 @@ class Message:
 
 
 if __name__ == '__main__':
-    print(Message(User(), Task()).create_message(1))
+    print(sys.argv[0])
