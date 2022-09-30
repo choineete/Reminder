@@ -6,9 +6,8 @@ from tkinter import messagebox
 import pystray
 import ttkbootstrap as ttk
 import tkinter as tk
-import tkinter.messagebox
 
-from tkinter import ttk
+
 
 # 弹窗显示任务详情
 from PIL import Image
@@ -135,20 +134,49 @@ def create_root_window():
 
 # 为每条消息创建一个框
 # 参数分别是 父容器 消息文本 消息编号
-def create_message_item(root_frame, msg):
+def create_message_item(root_frame, msg, level):
     # 创建消息UI主体
+
     frame = tk.Frame(root_frame)
 
-    # 效果1：提醒消息
+    # 效果1：显示消息类别
+    type, color = get_type_and_color(level)
+    # label_2 = tk.Label(frame,
+    #                    text='今日到期',
+    #                    background='#DC143C',
+    #                    foreground='#DC143C',
+    #                    font=('微软雅黑', 10, 'bold'))
+    # label_2.pack(side='left')
+
+    # 效果1：图片
+    photo = tk.PhotoImage(file='./img/img.png')
+    tk.Label(root_frame, image=photo).pack(side="left")
+
+    # 效果2：提醒消息
     label_1 = tk.Label(frame,
                        text=msg,
-                       fg='#535353',
+                       bg='#535353',
                        font=('微软雅黑', 10, 'bold'))
-    label_1.pack()
+    label_1.pack(side='left')
 
     frame.pack(pady='10px', padx='10px')
 
     return frame
+
+def get_type_and_color(level):
+    type_enum = {
+        1 : '即将到期',
+        2 : '今日到期',
+        3 : '到期3日',
+        4 : '到期7日'
+    }
+    color_enum = {
+        1: '',
+        2: '',
+        3: '',
+        4: ''
+    }
+    return type_enum[1], color_enum[1]
 
 
 def create_btns(btn_frame: tk.Frame, mode, root):
